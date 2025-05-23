@@ -1,0 +1,22 @@
+rules: 
+  - pattern: (?i).*kick.*
+    category: Drums/Kicks
+
+  - pattern: (?i).*snare.*
+    category: Drums/Snare
+
+  - pattern: (?i).*hat.*
+    category: Drums/Hats
+
+  - pattern: (?i).*loop.*
+    category: Loops
+
+  - pattern: (?i).*(fx|sweep|riser|impact).*
+    category: FX
+
+  - pattern: (?i).*(vocal|voice|chant|whisper).*
+    category: Vocals
+
+  - pattern: (?i).*bass.*
+    category: Instruments/Bass
+    
