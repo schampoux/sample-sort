@@ -20,3 +20,11 @@ rules:
   - pattern: (?i).*bass.*
     category: Instruments/Bass
     
+  - pattern: (?i).*license.*
+    category: License
+
+  - pattern: (?i).*midi.*
+    category: MIDI
+
+  - pattern: (?i).*guitar.*
+    category: Strings/Guitar

@@ -1,7 +1,10 @@
 from pathlib import Path 
 import os 
 import shutil
+import logging
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
 
 SOUND_TYPE_MAP = {
     "kick": "Kicks",
@@ -22,30 +25,35 @@ SOUND_TYPE_MAP = {
     "vox": "Vocals",
 }
 
-def classify_sound(file_name: Path ) -> str:
-    name = file_name.lower()
-    for key, value in SOUND_TYPE_MAP.items():
-        if key in name: 
-            return value
-        else: 
-            return "Misc"
-            
+def classify(path: Path, rules) -> str:
+    for pattern, category in rules:
+        if pattern.search(path):
+            return category 
+    return "Uncategorized"
+
 def move_file(base_dir, dest_file_dir, file_name, input_dirpath):
     input_file_location = os.path.join(input_dirpath, file_name)
     print(input_file_location)
 
 
 def main():
-    packs = 'trial-run/packs' # "sounds/packs"
-    base = '/Users/spun/Documents/music-prod/splice' 
+    packs_path = '/home/spunion/Documents/splice' # "sounds/packs"
+    base_path = '~/spunion/Documents/' 
+    output_path = '~/spunion/Documents/sorted-dir'
 
-    for sound_pack in os.listdir(os.path.join(base, packs)):
-        sound_pack_path = os.path.join(base, packs, sound_pack)
+    logging.log(logging.INFO, msg='Begin loop through sound packs:')
+    packs = os.listdir(packs_path)
+    for sound_pack in packs:
+
+        sound_pack_path = os.path.join(base_path, packs_path, sound_pack)
+
+        logging.log(logging.INFO,msg=f"Current pack: {sound_pack}")
         for dirpath, dirnames, filenames in os.walk(sound_pack_path):
             if filenames:
+                logging.log(logging.INFO, msg=f"This subfolder {filenames} contains {len(filenames)} files.")
                 # print(dirpath, dirnames, filenames,"\n")
                 for file_name in filenames: 
-                    move_file(base_dir)
+                    pass
         # dest_file_dir = classify_sound(path)
         
 
