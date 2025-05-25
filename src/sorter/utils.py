@@ -1,5 +1,6 @@
 import yaml 
 import re 
+from pathlib import Path 
 
 def load_rules(path='./rules.yaml'):
     with open(path, 'r') as f: 
@@ -9,3 +10,7 @@ def load_rules(path='./rules.yaml'):
         for rule in config['rules']
     ]
     return compiled_rules
+
+def fill_path(path: str):
+    path.replace(' ', '-')
+    return path 
