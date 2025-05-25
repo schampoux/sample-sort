@@ -1,13 +1,4 @@
 rules: 
-  - pattern: (?i).*kick.*
-    category: Drums/Kicks
-
-  - pattern: (?i).*snare.*
-    category: Drums/Snare
-
-  - pattern: (?i).*hat.*
-    category: Drums/Hats
-
   - pattern: (?i).*loop.*
     category: Loops
 
@@ -28,3 +19,21 @@ rules:
 
   - pattern: (?i).*guitar.*
     category: Strings/Guitar
+  
+  - pattern: (?i).*(pluck|stab).*
+    category: One-Shots
+  
+  - pattern: (?i).*sub.*
+    category: Sub-bass
+
+  - pattern: (?i).*kick.*
+    category: Drums/Kicks
+
+  - pattern: (?i).*snare.*
+    category: Drums/Snare
+
+  - pattern: (?i).*hat.*
+    category: Drums/Hats
+
+  - pattern: (?i).*clap.*
+    category: Drums/Claps
