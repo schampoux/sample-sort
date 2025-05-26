@@ -38,14 +38,16 @@ def classify_packs(dir: str) -> tuple[List[str], dict[str, str]]:
                     continue
 
                 for file_name in filenames: 
-                    print("split dirpath: ",dirpath.split('/'))
-                    print("file_name: ", file_name)
+                    # print("file_name: ", file_name)
                     classification_file = classify(path = os.path.join(dirpath[-1], file_name), rules = load_rules())
-                    full_path = fill_path(os.path.join(dirpath, file_name))
+                    if classification_dir == "Uncategorized" and classification_file =="Uncategorized":
+                        unclassified_packs.append(os.path.join(dirpath, file_name))
+                        print("File and Directory remain Uncategorized, continuing\n", "Directory: ", dirpath, "\nFile Name: ", file_name, "\n")
+                    full_path = os.path.join(dirpath, file_name)
                     classified_packs[classification_file].append(full_path)
 
                     # classified_packs.append(classification_file, full_path)
-                    print("dir class: ", classification_dir, "\nfile class: ",classification_file, "\n")
+                    # print("dir class: ", classification_dir, "\nfile class: ",classification_file, "\n")
 
         # dest_file_dir = classify_sound(path)
     return unclassified_packs, classified_packs
