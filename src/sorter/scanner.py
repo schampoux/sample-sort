@@ -26,7 +26,12 @@ def classify_packs(dir: 'str') -> tuple[List[str], dict[str, str]]:
 
         for dirpath, dirnames, filenames in os.walk(sound_pack_path):
             if filenames: 
-                print("\ndirpath: ", dirpath, "\ndirnames: ", dirnames, "\nfilenames: ", filenames)
+
+                if ".DS_Store" in filenames:
+                    if len(filenames) ==1:
+                        continue 
+                    filenames.remove(".DS_Store")
+
                 classification_dir = classify(path = dirpath, rules = load_rules())     
                 if classification_dir == "Uncategorized":
                     print(f"Current directory {dirpath} Uncategorized, cannot parse directory name for naming convention.")
