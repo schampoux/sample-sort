@@ -37,3 +37,6 @@ rules:
 
   - pattern: (?i).*clap.*
     category: Drums/Claps
+
+  - pattern: (?i).*melody.*
+    category: Loops
