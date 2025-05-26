@@ -1,9 +1,9 @@
 from pathlib import Path 
-from typing import DefaultDict, List 
+from typing import List 
 import os 
-import shutil
+# import shutil
 import logging
-from sorter.utils import create_output_dict, fill_path 
+from sorter.utils import create_output_dict, fill_path, load_rules
 
 logging.basicConfig(level=logging.DEBUG)
 
