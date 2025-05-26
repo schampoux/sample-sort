@@ -31,14 +31,8 @@ def classify_packs(dir: str) -> tuple[List[str], dict[str, str]]:
                     filenames.remove(".DS_Store")
 
                 classification_dir = classify(path = dirpath, rules = load_rules())     
-                if classification_dir == "Uncategorized":
-                    print(f"Current directory {dirpath} Uncategorized, cannot parse directory name for naming convention.")
-                    for file in filenames: 
-                        unclassified_packs.append(os.path.join(dirpath, file))
-                    continue
 
                 for file_name in filenames: 
-                    # print("file_name: ", file_name)
                     classification_file = classify(path = os.path.join(dirpath[-1], file_name), rules = load_rules())
                     if classification_dir == "Uncategorized" and classification_file =="Uncategorized":
                         unclassified_packs.append(os.path.join(dirpath, file_name))
@@ -46,8 +40,6 @@ def classify_packs(dir: str) -> tuple[List[str], dict[str, str]]:
                     full_path = os.path.join(dirpath, file_name)
                     classified_packs[classification_file].append(full_path)
 
-                    # classified_packs.append(classification_file, full_path)
-                    # print("dir class: ", classification_dir, "\nfile class: ",classification_file, "\n")
 
         # dest_file_dir = classify_sound(path)
     return unclassified_packs, classified_packs
