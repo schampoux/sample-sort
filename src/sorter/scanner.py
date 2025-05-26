@@ -15,15 +15,13 @@ def classify(path: Path, rules) -> str:
             return category 
     return "Uncategorized"
 
-def classify_packs(dir: 'str') -> tuple[List[str], dict[str, str]]:
+def classify_packs(dir: str) -> tuple[List[str], dict[str, str]]:
     packs = os.listdir(dir)
     unclassified_packs = []
     classified_packs = create_output_dict()
 
     for sound_pack in packs:
-
-        sound_pack_path = os.path.join(base_path, packs_path, sound_pack)
-
+        sound_pack_path = os.path.join(dir, sound_pack)
         for dirpath, dirnames, filenames in os.walk(sound_pack_path):
             if filenames: 
 
