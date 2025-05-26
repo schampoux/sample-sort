@@ -4,10 +4,7 @@ import os
 # import shutil
 import logging
 from sorter.utils import create_output_dict, fill_path, load_rules
-
 logging.basicConfig(level=logging.DEBUG)
-
-
 
 def classify(path: Path, rules) -> str:
     for pattern, category in rules:
@@ -55,7 +52,7 @@ def main():
     
     # Linux
     sound_packs_base_dir = '/home/spunion/Documents/splice' 
-    output_path = '/Users/spun/Documents/music-prod/splice/sorted-sounds'
+    output_path = '/home/spunion/Documents/splice/sorted-sounds'
 
     unclassif, classif = classify_packs(dir = sound_packs_base_dir)
         
