@@ -48,13 +48,16 @@ def move_file(base_dir, dest_file_dir, file_name, input_dirpath):
     input_file_location = os.path.join(input_dirpath, file_name)
     print(input_file_location)
 
-
 def main():
-    packs_path = '/Users/spun/Documents/music-prod/splice/trial-run/packs' # "sounds/packs"
-    base_path = '/Users/spun/Documents/music-prod/splice' 
-    output_path = '/Users/spun/Documents/music-prod/splice/sorted-sounds'
+    # mac
+    # sound_packs_base_dir = '/Users/spun/Documents/music-prod/splice/trial-run/packs' # "sounds/packs"
+    # output_path = '/Users/spun/Documents/music-prod/splice/sorted-sounds'
     
-    unclassif, classif = classify_packs(dir = packs_path)
+    # Linux
+    sound_packs_base_dir = '/home/spunion/Documents/splice' 
+    output_path = '/Users/spun/Documents/music-prod/splice/sorted-sounds'
+
+    unclassif, classif = classify_packs(dir = sound_packs_base_dir)
         
 if __name__ =="__main__":
     main()
